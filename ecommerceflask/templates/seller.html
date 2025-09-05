@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}New Offer{% endblock %}
+{% block style_imports %}
+  <link rel="stylesheet" href="{{url_for('static', filename='style/seller.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+{% endblock %}
+
+{% block content %}
+<div id="content-wrapper">
+  <div id="seller-form">
+    <form method="post" action="{{ url_for('seller.seller') }}" enctype="multipart/form-data" id="form">
+
+      <legend>
+        Add new product
+      </legend>
+
+      <div class="icon-input-box">
+        <label for="iprice">
+            <span class="material-icons">
+              attach_money
+            </span>
+        </label>
+
+        <input type="number" name="bprice" step="any" placeholder="Price of your product" class="iprice ipattern" required>
+      </div>
+
+      <div class="icon-input-box">
+        <label for="ititle">
+            <span class="material-icons">
+              label
+            </span>
+        </label>
+
+        <input type="text" name="btitle" placeholder="Offer Title" class="ititle ipattern" required>
+      </div>
+
+      <div id="button-box">
+        <input type="file" name="bimage" value="Image" id="button-add-img">
+        <input type="submit" value="Create Offer" id="button-create">
+      </div>
+    </form>
+
+    <div id="seller-box">
+        <h2>
+            Let's start!
+        </h2>
+
+        <p>
+            Here you add your product and start selling
+        </p>
+    </div>
+  </div>
+    
+</div>
+{% endblock %}

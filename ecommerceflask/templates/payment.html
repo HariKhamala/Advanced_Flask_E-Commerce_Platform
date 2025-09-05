@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/static/icons/payment.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #000000;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+        #rzp-button1 {
+            background-color: #3399cc;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #rzp-button1:hover {
+            background-color: #267c99;
+        }
+    </style>
+</head>
+<body>
+    <h1>Complete Your Payment</h1>
+    <button id="rzp-button1">Pay Now</button>
+
+    <script>
+        var options = {
+            "key": "{{ key_id }}",
+            "amount": "{{ amount }}",
+            "currency": "INR",
+            "name": "E-commerce Website",
+            "description": "Purchase Items",
+            "order_id": "{{ order_id }}",
+            "handler": function (response) {
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/verify_payment';
+
+                ['razorpay_payment_id', 'razorpay_order_id', 'razorpay_signature'].forEach(function(key) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = response[key];
+                    form.appendChild(input);
+                });
+
+                document.body.appendChild(form);
+                form.submit();
+            },
+            "prefill": {
+                "name": "{{ g.username }}",
+                "email": "customer@example.com",
+                "contact": "9999999999"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e) {
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    background-color: #f0f0f0;
+}
+
+#menu {
+    display: none;
+    font-size: 1.5em;
+    background-color: #f0f0f0;
+    color: black;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+
+.nav-bar ul {
+    display: flex;
+}
+
+.nav-bar ul li a {
+    display: block;
+    color: black;
+    padding: 15px 15px;
+    font-size: 1em;
+    transition: .2s ease-in-out;
+    /*font-family: Georgia, 'Times New Roman', Times, serif;*/
+}
+
+.nav-bar ul li a:hover {
+    text-decoration: underline;
+    color: #3a3a3a;
+}
+
+.material-symbols-outlined {
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1.5em;
+    margin-left: 15px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.icon-input-box-search {
+    display: flex;
+    box-shadow: 2px 2px 3px #0000001c;
+}
+
+#isearch-box {
+    display: flex;
+    box-shadow: 2px 2px 3px #0000001c;
+}
+
+#label-for-search > .material-symbols-outlined {
+    text-align: center;
+    line-height: 35px;
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    font-size: 1em;
+    color: #c0c0c0;
+    background-color: whitesmoke;
+}
+
+.ipattern-search {
+    height: 35px;
+    width: 85%;
+    padding-left: 5px;
+    outline: none;
+    border: none;
+    background-color: whitesmoke;
+}
+
+#i-search {
+    height: 35px;
+    width: 90%;
+    padding-left: 5px;
+    outline: none;
+    border: none;
+    background-color: whitesmoke;
+}
+
+#go {
+    height: 35px;
+    width: 20%;
+    border: none;
+    background-color: whitesmoke;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px #00000002;
+}
+
+/*Cart*/
+
+#cart-disapear {
+    display: none;
+}
+
+#open-cart {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0vw;
+    background-color: whitesmoke;
+    box-shadow: 8px 8px 15px #00000080;
+    overflow: auto;
+}
+
+#cart-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 0px 30px 0px;
+}
+
+.close-cart {
+    font-size: 1.8em;
+    margin-bottom: 7px;
+}
+
+/*.cart-items {
+    height: 120px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 2px 2px 3px #0000001c;
+}*/
+
+.cart-items {
+    height: fit-content;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+#box-for-underl {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+#box-for-underl::after {
+    content: '';
+    height: 1px;
+    width: 90%;
+    display: block;
+    margin: 0px auto 0px auto;
+    background-color: lightgray;
+}
+
+.cart-txt-img {
+    height: 110px;
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.cart-txt-img p {
+    width: 200px;
+}
+
+.cart-txt-img img {
+    height: 50%;
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+
+#checkout-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#checkout-box a {
+    color: black;
+    padding: 15px 15px;
+    font-size: 1em;
+    transition: .2s ease-in-out;
+}
+
+#checkout-box a:hover {
+    text-decoration: underline;
+    color: #3a3a3a;
+}
+
+#p-total {
+    padding: 20px 30% 20px 0px;
+    margin-left: 5%;
+    font-weight: bold;
+}
+
+/*Menu*/
+
+#account-menu-disappear {
+  display: none;
+}
+
+#menu-style {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0vw;
+    background-color: whitesmoke;
+    box-shadow: 8px 8px 15px #00000080;
+    transition: width .3s, height .3s;
+    transition-timing-function: ease;
+}
+
+#menu-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 0px 30px 0px;
+}
+
+#menu-header .material-symbols-outlined {
+    font-size: 1.8em;
+    margin-bottom: 7px;
+}
+
+#menu-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#menu-content > ul {
+    width: 100%;
+}
+
+#menu-content > ul > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+#menu-content > ul > li::after {
+    content: '';
+    height: 1px;
+    width: 90%;
+    display: block;
+    margin: 0px auto 0px auto;
+    background-color: lightgray;
+}
+
+#menu-content > ul > li > a {
+    padding: 10px;
+    color: black;
+}
+
+#menu-content > ul > li > a:hover {
+    text-decoration: underline;
+    color: #3a3a3a;
+}
+
+/*Footer*/
+
+#ifooter {
+    height: 300px;
+    width: 100%;
+    display: grid;
+    padding-top: 50px;
+    grid-template-columns: 1fr 1fr;
+    background-color: black;
+}
+
+#ifooter > div {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 0px 30%;
+}
+
+#ifooter > div > h4 {
+    color: white;
+}
+
+#ifooter a {
+    color: #9c9393;
+    margin: 10px 0px 10px 0px;
+    font-size: 0.9em;
+}
+
+#ifooter a:hover {
+    text-decoration: underline;
+}
+
+#footer-logo > p {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+
+#social-links a {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+#social-links  a  img {
+  filter: invert(100%) sepia(1%) saturate(5%) hue-rotate(337deg) brightness(103%) contrast(104%);
+  margin-right: 5px;
+}
+
+#itrade-mark {
+    margin: 10px 0px 10px 0px;
+    color: #9c9393;
+}

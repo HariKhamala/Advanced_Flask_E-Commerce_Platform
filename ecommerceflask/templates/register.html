@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block style_imports %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/register.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+{% endblock %}
+{% block content %}
+<div id="content-wrapper">
+    <main>
+        <section id="register-box">
+            <legend>
+                Create Account
+            </legend>
+
+            <form method="post" id="form-box">
+                <div class="icon-input-box">
+                    <label for="iusername">
+                        <span class="material-icons">person</span>
+                    </label>
+
+                    <input type="text" name="busername" class="iusername ipattern" placeholder="Username">
+                </div>
+
+                <div class="icon-input-box">
+                    <label for="iemail">
+                        <span class="material-icons">email</span>
+                    </label>
+
+                    <input type="email" name="bemail" class="iemail ipattern" placeholder="Email">
+                </div>
+
+                <div class="icon-input-box">
+                    <label for="ipassword">
+                        <span class="material-icons">lock</span>    
+                    </label>
+                    <input type="password" name="bpassword" class="ipassword ipattern" placeholder="Password">
+                </div>
+
+                <div class="buy-sell-box">
+                    <label for="buyer">Buyer</label>
+                    <input type="radio" name="busertype" value="1" class="buyer iradio">
+
+                    <label for="seller">Seller</label>
+                    <input type="radio" name="busertype" value="2" class="seller iradio">
+                </div>
+
+                <input type="submit" value="Sign Up" id="signup">
+            </form>
+
+               <!-- technically there might be multiple error messages that's why it is handled as a list -->
+            <div class="errors">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                    {% for message in messages %}
+                    <li> {{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <a href="{{ url_for('auth.login')}}" id="already-account">Already have an account?</a>
+        </section>
+
+        <section class="welcome-box">
+            <h2>
+                Welcome Back!
+            </h2>
+
+            <p>
+                To keep connected with us please login with your personal info
+            </p>
+
+            <a href="{{ url_for('auth.login')}}">Sign In</a>
+        </section>
+    </main>
+</div>
+{% endblock %}

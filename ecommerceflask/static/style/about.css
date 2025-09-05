@@ -1,0 +1,40 @@
+* {
+    padding: 0px; 
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+main {
+    height: fit-content;
+    padding: 20px;
+    margin: 0px auto;
+    background-color: white;
+    transition: width .3s, height .3s;
+    transition-timing-function: ease;
+}
+
+.about-boxes {
+    height: fit-content;
+    margin: 30px 0px 20px 0px;
+}
+
+.about-boxes > .txt-description {
+    text-align: justify;
+}
+
+.about-boxes > .txt-description > h3 {
+    margin-bottom: 10px;
+}
+
+.about-boxes > .txt-description > h3::after {
+    content: '';
+    height: 1px;
+    width: 60%;
+    display: inline-block;
+    background-color: black;
+}
+
+
+.about-boxes > .txt-description > p {
+    color: #2e2e2e;
+}

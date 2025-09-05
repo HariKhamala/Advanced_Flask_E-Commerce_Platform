@@ -1,0 +1,5 @@
+Flask
+razorpay
+python-dotenv
+nltk
+fuzzywuzzy[speedup]

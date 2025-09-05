@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block style_imports %}
+  <link rel="stylesheet" href="{{url_for('static', filename='style/login.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+{% endblock %}
+
+{% block content %}
+<div id="content-wrapper">
+    <main>
+        <section class="welcome-box">
+          <h2>
+            Hello!
+          </h2>
+
+          <p>
+              Enter you personal details and start a journey with us
+          </p>
+
+          <a href="{{ url_for('auth.register') }}">Sign Up</a>
+        </section>
+
+        <section id="register-box">
+          <form method="post" id="form-box">
+              <legend>
+                  Login In Your Account
+              </legend>
+
+              <div class="icon-input-box">
+                  <label for="iemail">
+                      <span class="material-icons">email</span>
+                  </label>
+
+                  <input type="email" name="bemail" class="iemail ipattern" placeholder="Email" required>
+              </div>
+
+              <div class="icon-input-box">
+                  <label for="ipassword">
+                      <span class="material-icons">lock</span>    
+                  </label>
+                  
+                  <input type="password" name="bpassword" class="ipassword ipattern" placeholder="Password" required>
+              </div>
+
+              <input type="submit" value="Sign In" id="signup">
+            </form>
+            <section class="messages">
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <ul class="flashes">
+                    {% for message in messages %}
+                      <li>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endwith %}
+            </section>
+            <a href="{{ url_for('auth.register')}}" id="already-account">Still don't have an account?</a>
+        </section>
+    </main>
+</div>
+{% endblock %}

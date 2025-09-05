@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+{% block style_imports %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/mquery.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="content-wrapper">
+  <section id="section-main-img-container">
+    <div id="main-img">
+      <div id="main-img-row">
+        <div id="product-text">
+          <h3>Products</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nesciunt illo est quo sapiente harum.
+          </p>
+        </div>
+        <div id="iflashes">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class="flashes">
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers available at the current moment -->
+  <div class="offers-container">
+    <h2>Available Offers</h2>
+    {% for offer in offers %}
+    <a href="{{ url_for('main.product', id=offer['id']) }}">
+      <div class="product-img-txt">
+        <img src="{{ url_for('main.img', name=offer['image']) }}" alt="No image for this product">
+        <span>{{ offer['offername'] }} for ${{ offer['price'] }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- Recommended Products Section -->
+  {% if recommendations %}
+  <div class="recommendations-container">
+    <h2>Recommended for You</h2>
+    {% for product in recommendations %}
+    <a href="{{ url_for('main.product', id=product['id']) }}">
+      <div class="product-img-txt">
+        <img src="{{ url_for('main.img', name=product['image']) }}" alt="{{ product['offername'] }}">
+        <span>{{ product['offername'] }} for ${{ product['price'] }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

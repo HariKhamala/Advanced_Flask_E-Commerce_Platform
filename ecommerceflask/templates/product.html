@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Product {{ product['offername']}} {% endblock %}
+{% block style_imports %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/product.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+{% endblock %}
+<script src="{{ url_for('static', filename='script/base.js') }}"></script>
+{% block script_imports %}
+{% endblock %}
+{% block content %}
+<div id="content-wrapper">
+
+  <form method="POST" id="content-box">
+
+    <div id="content-box-img">
+      <img src="{{ url_for('main.img', name=product['image']) }}" alt="Sorry, no image found!">
+    </div>
+
+    <div id="content-box-info">
+      <h3>{{ product['offername']}}</h3>
+      <!--<h1>Page for {{ product['offername']}} </h1>-->
+
+      <p id="description-box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, assumenda totam nostrum nisi tempora mollitia.
+      </p>
+
+      <div id="add-cart-box">
+        <input type="submit" value="Add To Cart" id="add-to-cart" onclick="addToCart()">
+      </div>
+    </div>
+
+  </form>
+</div>
+{% endblock %}
+<!DOCTYPE html>

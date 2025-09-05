@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Checkout {% endblock %}
+{% block style_imports %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/checkout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/mquery.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/mquery-checkout.css') }}">
+{% endblock %}
+{% block content %}
+<div id="content-wrapper">
+  <div id="box-for-img">
+    {% for product in products %}
+    <div class="product-item">
+      <img src="{{ url_for('main.img', name=product['image']) }}" alt="Sorry, no image for this product">
+      <p>{{ product['offername'] }} - ${{ product['price'] }}</p>
+      <form method="POST" action="{{ url_for('main.remove_from_cart', id=product['id']) }}">
+        <button type="submit" class="remove-btn">Remove</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div id="box-for-total">
+    <p>Total = ${{ products | sum(attribute='price') }}</p>
+    <form method="POST">
+      <input type="submit" value="Buy" id="buy">
+    </form>
+  </div>
+</div>
+{% endblock %}

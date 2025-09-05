@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Placed{% endblock %}
+
+{% block style_imports %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style/success.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/mquery.css') }}">
+{% endblock %}
+
+{% block content %}
+<main id="main-success" style="
+background: url('/static/icons/payment.png') no-repeat center center fixed;    background-size: cover;
+margin: 0;
+    padding: 0;
+    height: 100vh; /* Makes sure the body takes the full height of the viewport */
+    width: 100vw; /* Ensures the width is also covered */
+    overflow: hidden; /* Prevents any scrolling issues */
+">
+  <!-- Overlay to enhance text visibility -->
+  <div style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+  "></div>
+  
+  <!-- Content -->
+  <div style="
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      margin-left: 150px; /* Adjust this value to move the text to the right */
+    padding-left: 150px; /* Optional, adds padding inside the container */
+    text-align: left; /* Aligns text to the left */
+  ">
+    <h2>Order successfully placed</h2>
+    <p style="font-size: 1.2em;">
+      Congratulations! Your order has been successfully placed.
+    </p>
+  </div>
+</main>
+{% endblock %}
